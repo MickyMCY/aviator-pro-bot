@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confirmação - Aviator Bot PRO</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    h1 {
+      font-size: 30px;
+      color: #ff4747;
+      margin-bottom: 25px;
+    }
+    p {
+      font-size: 20px;
+      margin: 15px 0;
+    }
+    .urgencia {
+      font-size: 22px;
+      color: #ff3c3c;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    .botao {
+      display: inline-block;
+      background-color: #28c739;
+      color: white;
+      font-size: 22px;
+      padding: 15px 40px;
+      border-radius: 10px;
+      text-decoration: none;
+      animation: pulse 2s infinite;
+      margin-top: 25px;
+    }
+    .botao:hover {
+      background-color: #1aa22d;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+  <script>
+    let vagas = 6;
+    function atualizarVagas() {
+      const vagasElem = document.getElementById('vagas');
+      if(vagas > 0) {
+        vagas--;
+        vagasElem.textContent = vagas;
+      }
+      if(vagas === 0) {
+        alert("As vagas acabaram!");
+        const btn = document.getElementById('confirm-btn');
+        btn.disabled = true;
+        btn.textContent = "Vagas Esgotadas";
+        btn.style.backgroundColor = "#555";
+        btn.style.cursor = "not-allowed";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Confirmação de Pagamento</h1>
+  <p>Valor: <strong>500MT</strong></p>
+  <p class="urgencia">Restam apenas <span id="vagas">6</span> vagas!</p>
+  <p>Após efetuar o pagamento, envie a confirmação para o nosso suporte pelo WhatsApp e comece a fazer dinheiro agora!</p>
+  <a href="https://wa.me/258867145774?text=Olá%2C+efetuei+o+pagamento+do+Bot+Aviator+e+gostaria+de+confirmar." target="_blank" class="botao" id="confirm-btn" onclick="atualizarVagas()">Enviar Confirmação via WhatsApp</a>
+</body>
+</html>
